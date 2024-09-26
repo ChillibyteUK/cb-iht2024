@@ -9,7 +9,7 @@ if (isset(get_field('short_hero')[0]) && get_field('short_hero')[0] == 'Yes') {
     <?=wp_get_attachment_image(get_field('background'),'full',false,array('class' => 'hero__bg'))?>
     <div class="container-xl py-4">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-lg-8">
                 <h1 data-aos="fade-right"><?=get_field('title')?></h1>
                 <?php
                 $delay = 300;
