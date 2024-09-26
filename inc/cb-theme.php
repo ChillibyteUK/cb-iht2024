@@ -78,32 +78,42 @@ function widgets_init()
             array(
                 'name'  => 'Blue Light',
                 'slug'  => 'blue-300',
-                'color' => '#c6d7e7',
+                'color' => '#00AFD6',
             ),
             array(
                 'name'  => 'Blue Dark',
-                'slug'  => 'blue-600',
-                'color' => '#406b91',
+                'slug'  => 'blue-400',
+                'color' => '#0071AE',
             ),
             array(
-                'name'  => 'Red Light',
-                'slug'  => 'red-300',
-                'color' => '#d4969a',
+                'name'  => 'Red',
+                'slug'  => 'red-400',
+                'color' => '#FF1312',
             ),
             array(
-                'name'  => 'Red Dark',
-                'slug'  => 'red-600',
-                'color' => '#923f43',
+                'name'  => 'Green',
+                'slug'  => 'green-400',
+                'color' => '#5EAA28',
             ),
             array(
-                'name'  => 'Green Light',
-                'slug'  => 'green-300',
-                'color' => '#a6d9b3',
+                'name'  => 'Teal Dark',
+                'slug'  => 'teal-400',
+                'color' => '#5C8D87',
             ),
             array(
-                'name'  => 'Green Dark',
-                'slug'  => 'green-600',
-                'color' => '#409154',
+                'name'  => 'Teal Light',
+                'slug'  => 'teal-300',
+                'color' => '#5BAB8B',
+            ),
+            array(
+                'name'  => 'Orange',
+                'slug'  => 'orange-400',
+                'color' => '#FF7F23',
+            ),
+            array(
+                'name'  => 'Purple',
+                'slug'  => 'purple-400',
+                'color' => '#A86FA2',
             ),
         )
     );

@@ -1,47 +1,70 @@
 header {
+    .top_nav {
+        background-color: var(--col-blue-400);
+        font-size: var(--fs-300);
+        ul {
+            display: flex;
+            gap: 1rem;
+            justify-content: end;
+        }
+        li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            transition: color var(--transition);
+            color: var(--col-light);
+            &:hover {
+                color: var(--col-grey);
+            }
+        }
+    }
+
     background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: var(--transition);
+
     a.nav-link {
-        color: var(--col-blue-600);
+        color: var(--col-blue-400);
         font-weight: var(--fw-900);
         font-size: var(--fs-300);
         text-transform: uppercase;
         padding: 0.25rem 0.5rem;
         border-radius: 100px;
         line-height: 1.4;
+        transition: var(--transition);
         @media (min-width:992px) {
             &:hover {
-                background-color: var(--col-blue-400);
-                color: white;
+                color: var(--col-red-400);
             }
         }
     }
 
     .logo-container {
-        max-width: 186px;
+        max-width: 140px;
         margin-right: 1rem;
     }
     .logo {
-        background-image: url(../img/iht2024-logo.svg);
+        background-image: url(../img/iht-logo.png);
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
         display: inline-block;
-        aspect-ratio: 3 / 1;
-        width: 186px;
+        aspect-ratio: 2.2 / 1;
+        width: 140px;
         max-width: 100%;
     }
 
-    transition: transform 0.3s ease-in-out;
     &.hide {
         transform: translateY(-140px);
     }
 
-    .dropdown-toggle::after {
-        border: none;
-    }
     .dropdown-menu {
         border-color: transparent;
+        background-color: var(--col-blue-400);
+        a {
+            color: var(--col-light);
+        }
         @media (min-width:992px) {
             margin-top: 1.3rem !important;
             min-width: 300px;
@@ -50,10 +73,10 @@ header {
                 display: block;
                 position: absolute;
                 left: 1rem;
-                top: -15px;
-                border-bottom: 15px solid white;
-                border-left: 15px solid transparent;
-                border-right: 15px solid transparent;
+                top: -8px;
+                border-bottom: 8px solid var(--col-blue-400);
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
             }
             box-shadow: 0 40px 40px -20px rgba(0,0,0,0.5);
             text-transform: uppercase;
@@ -67,7 +90,7 @@ header {
                 transition: background-color var(--transition), color var(--transition);
                 &:hover {
                     color: white;
-                    background-color: var(--col-blue-400);
+                    background-color: var(--col-red-400);
                     opacity: 1;
                 }
             }

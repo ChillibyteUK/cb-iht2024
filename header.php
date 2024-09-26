@@ -19,13 +19,10 @@ session_start();
         charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1">
     <link rel="preload"
-        href="<?=get_stylesheet_directory_uri()?>/fonts/barlow-v12-latin-700.woff2"
+        href="<?=get_stylesheet_directory_uri()?>/fonts/open-sans-v40-latin-700.woff2"
         as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload"
-        href="<?=get_stylesheet_directory_uri()?>/fonts/barlow-v12-latin-500.woff2"
-        as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload"
-        href="<?=get_stylesheet_directory_uri()?>/fonts/barlow-v12-latin-regular.woff2"
+        href="<?=get_stylesheet_directory_uri()?>/fonts/open-sans-v40-latin-regular.woff2"
         as="font" type="font/woff2" crossorigin="anonymous">
     <?php
 if (!is_user_logged_in()) {
@@ -112,6 +109,18 @@ wp_head();
 do_action('wp_body_open');
 ?>
 <header id="wrapper-navbar" class="fixed-top p-0">
+    <section class="top_nav d-none d-lg-block">
+        <div class="container-xl">
+            <ul>
+                <li><a href="/about/">About Us</li>
+                <li><a href="/news/">News</li>
+                <li><a href="/contact/">Contact Us</li>
+                <li><?=do_shortcode('[social_fb_icon]')?></li>
+                <li><?=do_shortcode('[social_ig_icon]')?></li>
+                <li><?=do_shortcode('[social_in_icon]')?></li>
+            </ul>
+        </div>
+    </section>
     <nav class="navbar navbar-expand-lg p-0">
         <div class="container-xl py-2 nav-top align-items-end">
             <div class="text-lg-center logo-container"><a href="/" class="logo" aria-label="IHT Consultancy Homepage"></a></div>
