@@ -1,6 +1,6 @@
 .nav_cards {
     background-image: url(../img/bg--wirehand.svg);
-    background-size: 100%;
+    background-size: contain;
     background-position: bottom left;
     background-repeat: no-repeat;
     &__card {
@@ -32,16 +32,16 @@
     }
     h3 {
         font-size: var(--fs-450);
-        padding-inline: 1.75rem;
+        padding-inline: 2rem;
     }
     &__content {
-        padding-inline: 1.75rem;
+        padding-inline: 2rem;
         line-height: 1.2;
         padding-bottom: 1rem;
     }
     &__link {
         border-top: 1px solid var(--col-light);
-        padding-left: 1.75rem;
+        padding-left: 2rem;
         padding-block: 0.5rem;
         font-weight: var(--fw-900);
     }

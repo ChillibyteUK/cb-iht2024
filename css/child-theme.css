@@ -12,7 +12,7 @@
   --hsl-grey: 0 0% 97%;
   --hsl-light: 0 0% 100%;
   --h-top: 90px;
-  --h-top-desktop: 137px;
+  --h-top-desktop: 125px;
   --col-blue-300: hsl(var(--hsl-blue-300) / 1);
   --col-blue-400: hsl(var(--hsl-blue-400) / 1);
   --col-red-400: hsl(var(--hsl-red-400) / 1);
@@ -37,6 +37,7 @@
   --ff-body: "Open Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   --ff-heading: "Open Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   --fw-400: 400;
+  --fw-700: 600;
   --fw-900: 700;
   --transition: 250ms ease-out;
 }
@@ -21482,6 +21483,14 @@ readers do not read off random characters that represent icons */
   font-weight: 400;
   src: url("../fonts/open-sans-v40-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+/* open-sans-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/open-sans-v40-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
 /* open-sans-700 - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -21502,7 +21511,7 @@ body {
   font-family: var(--ff-body);
   font-weight: var(--fw-400);
   font-size: var(--fs-400);
-  line-height: 1.8;
+  line-height: 1.4;
   font-style: normal;
   color: var(--col-darkest);
   -webkit-font-smoothing: antialiased;
@@ -21541,8 +21550,39 @@ h4, .h4 {
   font-size: var(--fs-200);
 }
 
+.has-small-font-size,
 .fs-300 {
   font-size: var(--fs-300);
+}
+
+.fs-400 {
+  font-size: var(--fs-400);
+}
+
+.has-medium-font-size,
+.fs-450 {
+  font-size: var(--fs-450);
+}
+
+.has-large-font-size,
+.fs-500 {
+  font-size: var(--fs-500);
+}
+
+.fw-400 {
+  font-weight: var(--fw-400);
+}
+
+.fw-700 {
+  font-weight: var(--fw-700);
+}
+
+.fw-900 {
+  font-weight: var(--fw-900);
+}
+
+.text-balance {
+  text-wrap: balance;
 }
 
 p:not([class]) {
@@ -21629,6 +21669,11 @@ p:not([class]) {
   background-color: var(--col-purple-400);
 }
 
+.has-grey-background-color,
+.bg--grey {
+  background-color: var(--col-grey);
+}
+
 .button {
   background-color: var(--col-blue-300);
   display: flex;
@@ -21639,6 +21684,9 @@ p:not([class]) {
   border-top-left-radius: 100vw;
   border-bottom-left-radius: 100vw;
   transition: background-color var(--transition);
+  min-width: 300px;
+  align-self: center;
+  font-weight: var(--fw-700);
 }
 .button img {
   width: 50px;
@@ -21647,6 +21695,11 @@ p:not([class]) {
 .button:hover {
   color: var(--col-light);
   background-color: var(--col-red-400);
+}
+
+.button--white {
+  background-color: var(--col-light);
+  color: var(--col-blue-300);
 }
 
 header {
@@ -21693,7 +21746,7 @@ header .logo-container {
   margin-right: 1rem;
 }
 header .logo {
-  background-image: url(../img/iht-logo.png);
+  background-image: url(../img/iht-logo.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -21745,16 +21798,24 @@ header .dropdown-menu a {
 
 .footer {
   font-size: var(--fs-300);
-  background-color: var(--col-darkest);
-  color: white;
+  background-color: var(--col-blue-400);
+  color: var(--col-light);
 }
 .footer a {
-  font-weight: var(--fw-900);
+  font-weight: var(--fw-400);
   color: inherit;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.footer a:hover {
+  color: var(--col-blue-300);
+}
+.footer strong a {
+  font-weight: unset;
 }
 .footer__heading {
-  font-weight: var(--fw-400);
-  margin-bottom: 0.25rem;
+  font-weight: var(--fw-900);
+  margin-bottom: 1rem;
 }
 .footer .menu {
   -webkit-padding-start: 0;
@@ -21783,29 +21844,28 @@ header .dropdown-menu a {
 }
 
 .colophon {
-  background-color: var(--col-darkest);
-  font-size: var(--fs-300);
-  color: var(--col-dark);
-}
-.colophon img {
-  max-width: 180px;
-  margin-bottom: 2rem;
-}
-.colophon .lined {
-  border-top: 1px solid var(--col-dark);
-  padding-block: 0.5rem 1rem;
-}
-.colophon a {
-  color: inherit;
+  background-color: var(--col-red-400);
+  font-size: var(--fs-200);
+  color: var(--col-light);
 }
 .colophon .cb {
-  content: url(../img/cb.png);
+  content: url(../img/cb-mono.png);
   transition: all 0.2s ease-in;
 }
 .colophon .cb:hover {
   opacity: 0.8;
 }
 
+@media (min-width: 576px) {
+  .has-sm-border-right {
+    border-right: 1px solid white;
+  }
+}
+@media (min-width: 992px) {
+  .has-md-border-right {
+    border-right: 1px solid white;
+  }
+}
 .blog .news_grid__item {
   aspect-ratio: 16/9;
   width: 100%;
@@ -21895,6 +21955,44 @@ header .dropdown-menu a {
   width: auto;
 }
 
+.cta {
+  background-color: var(--col-blue-300);
+  color: var(--col-light);
+  background-image: url(../img/bg--wirehand-dark.svg);
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-block: 3rem;
+}
+
+.badge_slider .swiper {
+  width: 100%;
+  height: 240px;
+  padding: 0 50px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.badge_slider .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 2rem;
+  width: auto;
+}
+.badge_slider .swiper-slide img {
+  max-height: 150px;
+  width: auto;
+  max-width: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.badge_slider .swiper-button-prev,
+.badge_slider .swiper-button-next {
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+}
+
 .text_image_5050__content > * {
   max-width: 54ch;
 }
@@ -21942,7 +22040,7 @@ header .dropdown-menu a {
 
 .nav_cards {
   background-image: url(../img/bg--wirehand.svg);
-  background-size: 100%;
+  background-size: contain;
   background-position: bottom left;
   background-repeat: no-repeat;
 }
@@ -21975,16 +22073,16 @@ header .dropdown-menu a {
 }
 .nav_cards h3, .nav_cards .h3 {
   font-size: var(--fs-450);
-  padding-inline: 1.75rem;
+  padding-inline: 2rem;
 }
 .nav_cards__content {
-  padding-inline: 1.75rem;
+  padding-inline: 2rem;
   line-height: 1.2;
   padding-bottom: 1rem;
 }
 .nav_cards__link {
   border-top: 1px solid var(--col-light);
-  padding-left: 1.75rem;
+  padding-left: 2rem;
   padding-block: 0.5rem;
   font-weight: var(--fw-900);
 }
@@ -22318,6 +22416,13 @@ main a {
     order: 7 !important;
   }
 }
+.bg-wirehand {
+  background-image: url(../img/bg--wirehand.svg);
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: 50vw;
+}
+
 /*
 var all = document.getElementsByTagName("*"), i = 0, rect, docWidth = document.documentElement.offsetWidth;
 for (; i < all.length; i++) {

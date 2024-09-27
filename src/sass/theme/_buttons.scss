@@ -8,6 +8,9 @@
     border-top-left-radius: 100vw;
     border-bottom-left-radius: 100vw;
     transition: background-color var(--transition);
+    min-width: 300px;
+    align-self: center;
+    font-weight: var(--fw-700);
     img {
         width: 50px;
         height: 50px;
@@ -16,4 +19,9 @@
         color: var(--col-light);
         background-color: var(--col-red-400);
     }
+}
+
+.button--white {
+    background-color: var(--col-light);
+    color: var(--col-blue-300);
 }

@@ -140,6 +140,13 @@ main {
     }
 }
 
+.bg-wirehand {
+    background-image: url(../img/bg--wirehand.svg);
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    background-size: 50vw;
+}
+
 // show stuff that overflows horizontally
 // * {
 //     outline: 1px solid #f00 !important;

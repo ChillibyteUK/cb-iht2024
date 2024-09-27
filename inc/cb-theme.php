@@ -60,7 +60,6 @@ function widgets_init()
         'footer_menu1' => __('Footer Menu 1', 'cb-iht2024'),
         'footer_menu2' => __('Footer Menu 2', 'cb-iht2024'),
         'footer_menu3' => __('Footer Menu 3', 'cb-iht2024'),
-        'footer_menu3' => __('Footer Menu 4', 'cb-iht2024'),
     ));
 
     unregister_sidebar('hero');

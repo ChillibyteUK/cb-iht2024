@@ -107,11 +107,22 @@ wp_head();
     <?php understrap_body_attributes(); ?>>
     <?php
 do_action('wp_body_open');
+if (!is_user_logged_in()) {
+    if (get_field('gtm_property', 'options')) {
+        ?>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe
+        src="https://www.googletagmanager.com/ns.html?id=<?=get_field('gtm_property', 'options')?>"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <?php
+    }
+}
 ?>
 <header id="wrapper-navbar" class="fixed-top p-0">
-    <section class="top_nav d-none d-lg-block">
+    <section class="top_nav d-none d-lg-block py-2">
         <div class="container-xl">
-            <ul>
+            <ul class="mb-0">
                 <li><a href="/about/">About Us</li>
                 <li><a href="/news/">News</li>
                 <li><a href="/contact/">Contact Us</li>

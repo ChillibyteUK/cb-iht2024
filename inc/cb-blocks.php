@@ -12,6 +12,27 @@ function acf_blocks()
             'supports' => array('mode' => false),
         ));
         acf_register_block_type(array(
+            'name'				=> 'cb_cta',
+            'title'				=> __('CB CTA'),
+            'category'			=> 'layout',
+            'icon'				=> 'cover-image',
+            'render_template'	=> 'page-templates/blocks/cb_cta.php',
+            'mode'	=> 'edit',
+            'supports' => array('mode' => false),
+        ));
+        acf_register_block_type(array(
+            'name'				=> 'cb_badge_slider',
+            'title'				=> __('CB Badge Slider'),
+            'category'			=> 'layout',
+            'icon'				=> 'cover-image',
+            'render_template'	=> 'page-templates/blocks/cb_badge_slider.php',
+            'mode'	=> 'edit',
+            'supports' => array('mode' => false),
+        ));
+
+
+
+        acf_register_block_type(array(
             'name'				=> 'cb_text_image',
             'title'				=> __('CB Text / Image'),
             'category'			=> 'layout',

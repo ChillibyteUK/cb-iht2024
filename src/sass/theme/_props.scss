@@ -24,7 +24,7 @@ $col-light: #F2F2F2;
     --hsl-light: 0 0% 100%;
 
     --h-top: 90px;
-    --h-top-desktop: 137px;
+    --h-top-desktop: 125px;
 
     --col-blue-300: hsl(var(--hsl-blue-300) / 1);
     --col-blue-400: hsl(var(--hsl-blue-400) / 1);
@@ -71,6 +71,7 @@ $col-light: #F2F2F2;
     --ff-heading: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
     --fw-400: 400;
+    --fw-700: 600;
     --fw-900: 700;
 
     --transition: 250ms ease-out;

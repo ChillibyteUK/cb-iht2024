@@ -42,7 +42,7 @@ AOS.init({
     };
   
     var toggleHeader = function(direction, curScroll) {
-      if (direction === 2 && curScroll > 52) { 
+      if (direction === 2 && curScroll > 125) { 
   
         //replace 52 with the height of your header in px
         if (!document.getElementById('navbar').classList.contains("show")) {

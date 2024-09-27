@@ -4,11 +4,12 @@
     <div class="container-xl">
         <div class="row g-4">
             <?php
+            $d = 0;
             while(have_rows('cards')) {
                 the_row();
                 $colour = get_sub_field('background') ?? 'black';
                 ?>
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="<?=$d?>">
                 <a class="nav_cards__card" href="<?=get_sub_field('link')['url'] ?? null?>">
                     <div class="nav_cards__icon bg--<?=$colour?>">
                         <img src="<?=get_sub_field('icon')?>" alt="<?=get_sub_field('title')?>">
@@ -21,6 +22,7 @@
                 </a>
             </div>
                 <?php
+                $d+=100;
             }
             ?>
         </div>

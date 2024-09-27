@@ -16,36 +16,30 @@ function split_lines($content) {
 }
 
 add_shortcode('contact_address', function(){
-    $output = get_field('contact_address','options');
+    $output = get_field('contact_address','option');
     return $output;
 });
 
-add_shortcode('head_office_phone', function(){
-    if (get_field('head_office_phone','options')) {
-        return '<a href="tel:' . parse_phone(get_field('head_office_phone','options')) . '">' . get_field('head_office_phone','options') . '</a>';
-    }
-    return;
-});
-add_shortcode('sales_office_phone', function(){
-    if (get_field('sales_office_phone','options')) {
-        return '<a href="tel:' . parse_phone(get_field('sales_office_phone','options')) . '">' . get_field('sales_office_phone','options') . '</a>';
+add_shortcode('contact_phone', function(){
+    if (get_field('contact_phone','option')) {
+        return '<a href="tel:' . parse_phone(get_field('contact_phone','option')) . '">' . get_field('contact_phone','option') . '</a>';
     }
     return;
 });
 add_shortcode('contact_email', function(){
-    if (get_field('contact_email','options')) {
-        return '<a href="mailto:' . get_field('contact_email','options') . '">' . get_field('contact_email','options') . '</a>';
+    if (get_field('contact_email','option')) {
+        return '<a href="mailto:' . get_field('contact_email','option') . '">' . get_field('contact_email','option') . '</a>';
     }
     return;
 });
 add_shortcode('contact_email_icon', function(){
-    if (get_field('contact_email','options')) {
-        return '<a href="mailto:' . get_field('contact_email','options') . '"><i class="fas fa-envelope"></i></a>';
+    if (get_field('contact_email','option')) {
+        return '<a href="mailto:' . get_field('contact_email','option') . '"><i class="fas fa-envelope"></i></a>';
     }
     return;
 });
 add_shortcode('social_fb_icon', function () {
-    $social = get_field('social', 'options');
+    $social = get_field('social', 'option');
     $fburl = $social['facebook_url'];
     if ($fburl != '') {
         return '<a href="' . $fburl . '" target="_blank"><i class="fab fa-facebook"></i></a>';
@@ -53,7 +47,7 @@ add_shortcode('social_fb_icon', function () {
     return;
 });
 add_shortcode('social_ig_icon', function () {
-    $social = get_field('social', 'options');
+    $social = get_field('social', 'option');
     $igurl = $social['instagram_url'];
     if ($igurl != '') {
         return '<a href="' . $igurl . '" target="_blank"><i class="fab fa-instagram"></i></a>';
@@ -61,7 +55,7 @@ add_shortcode('social_ig_icon', function () {
     return;
 });
 add_shortcode('social_tw_icon', function () {
-    $social = get_field('social', 'options');
+    $social = get_field('social', 'option');
     $twurl = $social['twitter_url'];
     if ($twurl != '') {
         return '<a href="' . $twurl . '" target="_blank"><i class="fab fa-twitter"></i></a>';
@@ -69,7 +63,7 @@ add_shortcode('social_tw_icon', function () {
     return;
 });
 add_shortcode('social_pt_icon', function () {
-    $social = get_field('social', 'options');
+    $social = get_field('social', 'option');
     $pturl = $social['pinterest_url'];
     if ($pturl != '') {
         return '<a href="' . $pturl . '" target="_blank"><i class="fab fa-pinterest"></i></a>';
@@ -77,7 +71,7 @@ add_shortcode('social_pt_icon', function () {
     return;
 });
 add_shortcode('social_yt_icon', function () {
-    $social = get_field('social', 'options');
+    $social = get_field('social', 'option');
     $yturl = $social['youtube_url'];
     if ($yturl != '') {
         return '<a href="' . $yturl . '" target="_blank"><i class="fab fa-youtube"></i></a>';
@@ -85,7 +79,7 @@ add_shortcode('social_yt_icon', function () {
     return;
 });
 add_shortcode('social_in_icon', function () {
-    $social = get_field('social', 'options');
+    $social = get_field('social', 'option');
     $inurl = $social['linkedin_url'];
     if ($inurl != '') {
         return '<a href="' . $inurl . '" target="_blank"><i class="fab fa-linkedin"></i></a>';
@@ -93,7 +87,7 @@ add_shortcode('social_in_icon', function () {
     return;
 });
 add_shortcode('social_gp_icon', function () {
-    $social = get_field('social', 'options');
+    $social = get_field('social', 'option');
     $gpurl = $social['google_url'];
     if ($gpurl != '') {
         return '<a href="' . $gpurl . '" target="_blank"><i class="fas fa-globe-americas"></i></a>';
