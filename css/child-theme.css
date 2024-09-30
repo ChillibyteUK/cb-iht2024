@@ -21684,13 +21684,13 @@ p:not([class]) {
   border-top-left-radius: 100vw;
   border-bottom-left-radius: 100vw;
   transition: background-color var(--transition);
-  min-width: 300px;
+  min-width: 270px;
   align-self: center;
   font-weight: var(--fw-700);
 }
 .button img {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
 }
 .button:hover {
   color: var(--col-light);
