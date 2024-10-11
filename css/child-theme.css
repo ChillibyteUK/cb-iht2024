@@ -21914,6 +21914,7 @@ header .dropdown-menu a {
   min-height: 500px;
   display: flex;
   align-items: center;
+  background-color: var(--col-blue-400);
   width: 100%;
   isolation: isolate;
 }
