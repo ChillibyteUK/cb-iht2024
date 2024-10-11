@@ -29,11 +29,10 @@ $overlay = (isset(get_field('background_pattern')[0]) && get_field('background_p
             <div class="col-lg-6 d-flex flex-column justify-content-center text_image_5050__content <?=$order_left?>" data-aos="<?=$fade_left?>">
                 <?php
                 if (get_field('title')) {
-                    echo '<h2 class="' . $title . '">' . get_field('title') . '</h2>';
+                    echo '<h2 class="has-blue-400-color ' . $title . '">' . get_field('title') . '</h2>';
                 }
                 if (get_field('subtitle')) {
-                    $c = $bg != 'bg--theme' ? 'fg--theme' : '';
-                    echo '<h3 class="mb-4 ' . $c . '">' . get_field('subtitle') . '</h3>';
+                    echo '<h3 class="mb-4">' . get_field('subtitle') . '</h3>';
                 }
                 echo get_field('content');
                 if (get_field('cta')) {
