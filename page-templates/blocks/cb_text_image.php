@@ -1,7 +1,7 @@
 <?php
-$order_left = (get_field('order') == 'text') ? 'order-1 order-lg-2' : 'order-1 order-lg-1';
+$order_left = (get_field('order') == 'text') ? 'order-1 order-lg-1' : 'order-1 order-lg-2';
 $fade_left = (get_field('order') == 'text') ? 'fade-left' : 'fade-right';
-$order_right = (get_field('order') == 'text') ? 'order-2 order-lg-1' : 'order-2 order-lg-2';
+$order_right = (get_field('order') == 'text') ? 'order-2 order-lg-2' : 'order-2 order-lg-1';
 $fade_right = (get_field('order') == 'text') ? 'fade-right' : 'fade-left';
 // $bg = get_field('background') == 'dark' ? 'bg--blue-300' : '';
 // $link = get_field('background') == 'dark' ? 'text--theme' : 'text--blue-600';
