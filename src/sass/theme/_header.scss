@@ -39,6 +39,9 @@ header {
             }
         }
     }
+    .dropdown-menu a {
+        text-transform: initial;
+    }
 
     .logo-container {
         max-width: 140px;
