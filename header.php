@@ -164,6 +164,8 @@ wp_head();
 
             header .dropdown-menu a {
                 padding: 4.5px 18px;
+                font-weight: 400;
+                font-size: 18px;
             }
         }
 
