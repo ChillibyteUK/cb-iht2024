@@ -107,7 +107,7 @@ wp_head();
                 position: relative;
             }
 
-            .nav-item .submenu {
+            .nav-item .dropdown-menu {
                 display: none;
                 position: absolute;
                 left: 100%;
@@ -123,7 +123,7 @@ wp_head();
                 background-color: #f1f1f1
             }
 
-            .dropdown-menu>li:hover>.submenu {
+            .dropdown-menu>li:hover>.dropdown-menu {
                 display: block;
             }
         }
