@@ -144,7 +144,8 @@ wp_head();
                 border-right: 8px solid transparent;
             }
 
-            header .dropdown-menu .dropdown-menu::before {
+            header .dropdown-menu .dropdown-menu::before,
+            header .dropdown-menu li::before {
                 content: none;
             }
         }
