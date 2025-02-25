@@ -130,7 +130,7 @@ wp_head();
             header .dropdown-menu .dropdown-toggle {
                 padding: 0 1rem !important;
                 line-height: 24px;
-                padding-block: 5px;
+                padding-block: 5px!important;;
             }
 
             header .dropdown-menu::before {
@@ -146,7 +146,8 @@ wp_head();
 
             header .dropdown-menu .dropdown-menu::before,
             header .dropdown-menu li::before,
-            header .dropdown-menu li .dropdown-item::before {
+            header .dropdown-menu li .dropdown-item::before
+            header .dropdown-menu .dropdown-toggle:before {
                 content: none;
             }
         }
