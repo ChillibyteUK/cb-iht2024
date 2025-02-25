@@ -161,6 +161,10 @@ wp_head();
                 margin-right: 0.7rem;
                 margin-bottom: .5rem;
             }
+
+            header .dropdown-menu a {
+                padding: 4.5px 18px;
+            }
         }
 
         /* ============ small devices .end// ============ */
