@@ -146,7 +146,7 @@ wp_head();
 
             header .dropdown-menu .dropdown-menu::before,
             header .dropdown-menu li::before,
-            header .dropdown-menu li .dropdown-item::before.
+            header .dropdown-menu li .dropdown-item::before,
             header .dropdown-menu .dropdown-toggle:before {
                 content: none;
             }
