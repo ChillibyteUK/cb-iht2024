@@ -133,7 +133,7 @@ wp_head();
                 padding-block: 5px;
             }
 
-            header > .dropdown-menu :before {
+            header .dropdown-menu::before {
                 content: "";
                 display: block;
                 position: absolute;
@@ -144,7 +144,7 @@ wp_head();
                 border-right: 8px solid transparent;
             }
 
-            header .dropdown-menu .dropdown-menu :before {
+            header .dropdown-menu .dropdown-menu::before {
                 content: none;
             }
         }
