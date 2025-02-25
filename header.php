@@ -128,9 +128,24 @@ wp_head();
             }
 
             header .dropdown-menu .dropdown-toggle {
-                padding: 0 1rem;
+                padding: 0 1rem !important;
                 line-height: 24px;
                 padding-block: 5px;
+            }
+
+            header > .dropdown-menu :before {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 1rem;
+                top: -8px;
+                border-bottom: 8px solid var(--col-blue-400);
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+            }
+
+            header .dropdown-menu .dropdown-menu :before {
+                content: none;
             }
         }
 
