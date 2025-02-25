@@ -126,6 +126,12 @@ wp_head();
             .dropdown-menu>li:hover>.dropdown-menu {
                 display: block;
             }
+
+            header .dropdown-menu .dropdown-toggle {
+                padding: 0 1rem;
+                line-height: 24px;
+                padding-block: 5px;
+            }
         }
 
         /* ============ desktop view .end// ============ */
