@@ -107,7 +107,7 @@ wp_head();
                 position: relative;
             }
 
-            .nav-item .dropdown-menu {
+            .nav-item .dropdown-menu .dropdown-menu {
                 display: none;
                 position: absolute;
                 left: 100%;
