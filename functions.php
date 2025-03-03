@@ -94,3 +94,8 @@ function understrap_child_customize_controls_js() {
 	);
 }
 add_action( 'customize_controls_enqueue_scripts', 'understrap_child_customize_controls_js' );
+
+function tecs_add_related_shortcode() {
+	echo do_shortcode( "[ecs-list-events exclude_id='current']" );
+}
+add_action( 'tribe_events_after_the_content', 'tecs_add_related_shortcode' );
