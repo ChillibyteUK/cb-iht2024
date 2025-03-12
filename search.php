@@ -13,7 +13,7 @@ get_header();
 $title = sprintf(esc_html__('Search Results for: %s', 'understrap'), '<span>' . get_search_query() . '</span>');
 $theme = 'default';
 ?>
-<main id="main" class="pt-1">
+<main id="main" class="pt-5">
 <!-- page_title -->
 <div class="page_title page_title--<?=$theme?>">
     <div class="overlay"></div>
