@@ -24,8 +24,6 @@ function understrap_remove_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'understrap_remove_scripts', 20 );
 
-
-
 /**
  * Enqueue our stylesheet and javascript file
  */
@@ -54,8 +52,6 @@ function theme_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
-
-
 /**
  * Load the child theme's text domain
  */
@@ -63,8 +59,6 @@ function add_child_theme_textdomain() {
 	load_child_theme_textdomain( 'cb-iht2024', get_stylesheet_directory() . '/languages' );
 }
 add_action( 'after_setup_theme', 'add_child_theme_textdomain' );
-
-
 
 /**
  * Overrides the theme_mod to default to Bootstrap 5
@@ -79,8 +73,6 @@ function understrap_default_bootstrap_version() {
 }
 add_filter( 'theme_mod_understrap_bootstrap_version', 'understrap_default_bootstrap_version', 20 );
 
-
-
 /**
  * Loads javascript for showing customizer warning dialog.
  */
@@ -94,8 +86,3 @@ function understrap_child_customize_controls_js() {
 	);
 }
 add_action( 'customize_controls_enqueue_scripts', 'understrap_child_customize_controls_js' );
-
-function tecs_add_related_shortcode() {
-	echo do_shortcode( "[ecs-list-events exclude_id='current']" );
-}
-add_action( 'tribe_events_after_the_content', 'tecs_add_related_shortcode' );
