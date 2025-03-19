@@ -1,4 +1,10 @@
 <?php
+$count = 0;
+$cards = get_field('cards');
+if (is_array($cards)) {
+    $count = count($cards);
+}
+$numcards = $count == '4' ? 'col-md-6 col-lg-6' : 'col-md-6 col-lg-4';
 ?>
 <div class="nav_cards py-5">
     <div class="container-xl">
@@ -10,7 +16,7 @@
                 $colour = get_sub_field('background') ?? 'black';
                 $l = get_sub_field('link') ?? null;
                 ?>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="<?=$d?>">
+            <div class="<?=$numcards?>" data-aos="fade-up" data-aos-delay="<?=$d?>">
                 <a class="nav_cards__card" href="<?=$l?>">
                     <div class="nav_cards__icon bg--<?=$colour?>">
                         <img src="<?=get_sub_field('icon')?>" alt="<?=get_sub_field('title')?>">
