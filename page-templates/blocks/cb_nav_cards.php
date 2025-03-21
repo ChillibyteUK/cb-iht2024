@@ -8,7 +8,7 @@ $numcards = $count == '4' ? 'col-md-6 col-lg-6' : 'col-md-6 col-lg-4';
 ?>
 <div class="nav_cards py-5">
     <div class="container-xl">
-        <div class="row g-4">
+        <div class="row g-4 justify-content-center">
             <?php
             $d = 0;
             while(have_rows('cards')) {
