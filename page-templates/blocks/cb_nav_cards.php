@@ -35,9 +35,9 @@ $numcards = $count == '4' ? 'col-md-6 col-lg-6' : 'col-md-6 col-lg-4';
                     <div class="nav_cards__inner bg--<?=$colour?>">
                         <h3><?=get_sub_field('title')?></h3>
                         <div class="nav_cards__content"><?=get_sub_field('content')?></div>
-                        <a href="<?=$l?>" target="<?=$target?>" class="nav_cards__link <?=$nav_cards__link?>"><i class="fa-solid fa-angle-right"></i> Learn more</a>
+                        <a href="<?=$l?>" target="<?=$target?>" class="nav_cards__link text-white <?=$nav_cards__link?>"><i class="fa-solid fa-angle-right"></i> Learn more</a>
                         <?php if (str_ends_with($l, ".pdf")) { ?>
-                        <a href="/courses/" class="nav_cards__link <?=$nav_cards__link?>"><i class="fa-solid fa-angle-right"></i> View available dates</a>
+                        <a href="/courses/" class="nav_cards__link text-white <?=$nav_cards__link?>"><i class="fa-solid fa-angle-right"></i> View available dates</a>
                         <?php } ?>
                     </div>
                 </div>
