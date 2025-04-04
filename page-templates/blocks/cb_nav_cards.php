@@ -28,16 +28,19 @@ $numcards = $count == '4' ? 'col-md-6 col-lg-6' : 'col-md-6 col-lg-4';
                 }
                 ?>
             <div class="<?=$numcards?>" data-aos="fade-up" data-aos-delay="<?=$d?>">
-                <a class="nav_cards__card w-100" href="<?=$l?>" target="<?=$target?>">
+                <div class="nav_cards__card w-100">
                     <div class="nav_cards__icon bg--<?=$colour?>">
                         <img src="<?=get_sub_field('icon')?>" alt="<?=get_sub_field('title')?>">
                     </div>
                     <div class="nav_cards__inner bg--<?=$colour?>">
                         <h3><?=get_sub_field('title')?></h3>
                         <div class="nav_cards__content"><?=get_sub_field('content')?></div>
-                        <div class="nav_cards__link <?=$nav_cards__link?>"><i class="fa-solid fa-angle-right"></i> Learn more</div>
+                        <a href="<?=$l?>" target="<?=$target?>" class="nav_cards__link <?=$nav_cards__link?>"><i class="fa-solid fa-angle-right"></i> Learn more</a>
+                        <?php if (str_ends_with($l, ".pdf")) { ?>
+                        <a href="/courses/" class="nav_cards__link <?=$nav_cards__link?>"><i class="fa-solid fa-angle-right"></i> View available dates</a>
+                        <?php } ?>
                     </div>
-                </a>
+                </div>
             </div>
                 <?php
                 $d+=100;
