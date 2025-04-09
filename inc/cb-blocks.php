@@ -29,9 +29,6 @@ function acf_blocks()
             'mode'	=> 'edit',
             'supports' => array('mode' => false),
         ));
-
-
-
         acf_register_block_type(array(
             'name'				=> 'cb_text_image',
             'title'				=> __('CB Text / Image'),
@@ -123,12 +120,21 @@ function acf_blocks()
             'supports' => array('mode' => false),
         ));
         acf_register_block_type(array(
-            'name'				=> 'cb_pdf',
-            'title'				=> __('CB PDF'),
-            'category'			=> 'layout',
-            'icon'				=> 'cover-image',
-            'render_template'	=> 'page-templates/blocks/cb_pdf.php',
-            'mode'	=> 'edit',
+            'name'              => 'cb_pdf',
+            'title'             => __('CB PDF'),
+            'category'          => 'layout',
+            'icon'              => 'cover-image',
+            'render_template'   => 'page-templates/blocks/cb_pdf.php',
+            'mode'  => 'edit',
+            'supports' => array('mode' => false),
+        ));
+        acf_register_block_type(array(
+            'name'              => 'cb_faq',
+            'title'             => __('CB FAQ'),
+            'category'          => 'layout',
+            'icon'              => 'cover-image',
+            'render_template'   => 'page-templates/blocks/cb_faq.php',
+            'mode'  => 'edit',
             'supports' => array('mode' => false),
         ));
     }
