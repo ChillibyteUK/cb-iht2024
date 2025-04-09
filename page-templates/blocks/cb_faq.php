@@ -7,10 +7,8 @@ $expanded = 'false';
 $collapse = '';
 $button = 'collapsed';
 ?>
-<section class="faqs py-5">
+<section class="faqs faqs pb-4 pt-2">
     <div class="container-xl">
-        <h2 class="text-center"><?=get_field('title')?></h2>
-        <div class="mb-4"><?=get_field('introduction')?></div>
         <div id="accordion<?=$accordion?>" class="accordion">
         <?php
             while (have_rows('faqs')) {
