@@ -17,7 +17,7 @@ $button = 'collapsed';
                 the_row();
                 $ac = $accordion . '_' . $counter;
                 ?>
-            <div class="accordion-item">
+            <div class="accordion-item" style="background-color: <?=get_sub_field("background_colour")?>; color: <?=get_sub_field("text_colour")?>;">
                 <div class="accordion-header">
                     <button class="accordion-button <?=$button?>"
                         type="button" data-bs-toggle="collapse"
