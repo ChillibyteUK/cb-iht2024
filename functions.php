@@ -112,7 +112,7 @@ function mailchimp_news_shortcode() {
 
     // Display feed content
     echo "<div class='container mc_news'>";
-    echo "<div class='row'>";
+    echo "<div class='row mt-4'>";
 
     // Loop through feed items
     foreach ($rss->channel->item as $item) {
@@ -121,7 +121,7 @@ function mailchimp_news_shortcode() {
         $date = date("F j, Y", strtotime($item->pubDate));
         $desc = wp_kses_post($item->description);
 
-        echo "<div class='shadow col-lg-4 mb-4'>";
+        echo "<div class='shadow col-lg-4 mb-4 d-flex flex-column justify-content-center'>";
         echo "<img src='/wp-content/uploads/2025/04/a768e926-756c-1959-2e91-81178146a9c4.jpg' class='img-fluid w-100'>";
         echo "<h4 class='fs-5'><a href='$link' target='_blank' class='text-black'>$title</a></h4>";
         echo "<small><em>Published: $date</em></small>";
