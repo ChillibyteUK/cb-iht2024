@@ -111,7 +111,8 @@ function mailchimp_news_shortcode() {
     }
 
     // Display feed content
-    echo "<div class='row mc_news'>";
+    echo "<div class='container mc_news'>";
+    echo "<div class='row'>";
 
     // Loop through feed items
     foreach ($rss->channel->item as $item) {
@@ -127,6 +128,7 @@ function mailchimp_news_shortcode() {
         echo "</div>";
     }
 
+    echo "</div>";
     echo "</div>";
 
     // Return the buffered content
