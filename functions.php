@@ -86,3 +86,54 @@ function understrap_child_customize_controls_js() {
 	);
 }
 add_action( 'customize_controls_enqueue_scripts', 'understrap_child_customize_controls_js' );
+
+function mailchimp_news_shortcode() {
+    // Start output buffering
+    ob_start();
+
+    // Mailchimp RSS feed URL
+    $feed_url = "https://us21.campaign-archive.com/feed?u=f6e2824f4c705e0b47cf502bd&id=dc7ce491d3";
+
+    // Fetch the feed content
+    $feed_content = @file_get_contents($feed_url);
+
+    if ($feed_content === false) {
+        echo "<p>Error: Unable to fetch the Mailchimp RSS feed.</p>";
+        return ob_get_clean();
+    }
+
+    // Parse the RSS feed using SimpleXML
+    $rss = @simplexml_load_string($feed_content);
+
+    if ($rss === false) {
+        echo "<p>Error: Unable to parse the Mailchimp RSS feed.</p>";
+        return ob_get_clean();
+    }
+
+    // Display feed content
+    echo "<div class='mailchimp-news'>";
+    echo "<h2>" . esc_html($rss->channel->title) . "</h2>";
+    echo "<p><em>" . esc_html($rss->channel->description) . "</em></p>";
+    echo "<ul>";
+
+    // Loop through feed items
+    foreach ($rss->channel->item as $item) {
+        $title = esc_html($item->title);
+        $link = esc_url($item->link);
+        $date = date("F j, Y", strtotime($item->pubDate));
+        $desc = wp_kses_post($item->description);
+
+        echo "<li style='margin-bottom: 1.5em;'>";
+        echo "<h4><a href='$link' target='_blank'>$title</a></h4>";
+        echo "<small><em>Published: $date</em></small>";
+        echo "<p>$desc</p>";
+        echo "</li>";
+    }
+
+    echo "</ul>";
+    echo "</div>";
+
+    // Return the buffered content
+    return ob_get_clean();
+}
+add_shortcode('mailchimp_news', 'mailchimp_news_shortcode');
