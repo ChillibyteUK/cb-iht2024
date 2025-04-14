@@ -121,10 +121,11 @@ function mailchimp_news_shortcode() {
         $date = date("F j, Y", strtotime($item->pubDate));
         $desc = wp_kses_post($item->description);
 
-        echo "<div class='col-lg-4'>";
+        echo "<div class='shadow col-lg-4 mb-4'>";
         echo "<img src='/wp-content/uploads/2025/04/a768e926-756c-1959-2e91-81178146a9c4.jpg' class='img-fluid w-100'>";
-        echo "<h4><a href='$link' target='_blank'>$title</a></h4>";
+        echo "<h4 class='fs-5'><a href='$link' target='_blank' class='text-black'>$title</a></h4>";
         echo "<small><em>Published: $date</em></small>";
+        echo "<a href='$link' target='_blank' class='btn btn-secondary d-block my-3'>View Newsletter</a>";
         echo "</div>";
     }
 
