@@ -47,6 +47,9 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
+                            <?php
+                            $image = get_sub_field('image');
+                            ?>
                             <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="image" />
                         </div>
                         <div class="flip-card-back">
