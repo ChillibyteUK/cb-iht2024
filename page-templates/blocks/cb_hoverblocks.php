@@ -5,14 +5,15 @@
             while(have_rows('blocks')) {
                 the_row();
                 ?>
-            <div class="col-md-4 col-lg-6">
+            <div class="card col-md-4 col-lg-4">
                 <?php 
                 $image = get_sub_field('image');
                 if( !empty( $image ) ): ?>
                     <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                 <?php endif; ?>
-                <h3><?=get_sub_field('title')?></h3>
-                 <div class=""><?=get_sub_field('text')?></div>
+                <div class="card-body">
+                    <h5 class="card-title"><?=get_sub_field('title')?></h5>
+                </div>
             </div>
             <?php
             }
