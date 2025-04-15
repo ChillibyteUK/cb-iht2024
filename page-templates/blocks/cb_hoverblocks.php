@@ -33,7 +33,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    font-size: 0.8rem;
 }
 </style>
 <div class="hoverblocks py-5">
@@ -53,8 +53,8 @@
                             <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="image" />
                         </div>
                         <div class="flip-card-back">
-                            <div>
-                                <h5><?=get_sub_field('title')?></h5>
+                            <div class="p-4">
+                                <h5 class="fs-6"><?=get_sub_field('title')?></h5>
                                 <?=get_sub_field('text')?>
                             </div>
                         </div>
