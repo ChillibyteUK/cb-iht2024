@@ -6,7 +6,7 @@
                 <h2 class="text--blue-400">Memberships &amp; Partnerships</h2>
             </div>
             <div class="col-md-4 d-flex">
-                <a href="/about-us/" class="button"><img src="<?=get_stylesheet_directory_uri()?>/img/icon--arrow.svg"> Learn more</a>
+                <a href="/memberships-and-partnerships/" class="button"><img src="<?=get_stylesheet_directory_uri()?>/img/icon--arrow.svg"> Learn more</a>
             </div>
         </div>
         <div class="swiper">
