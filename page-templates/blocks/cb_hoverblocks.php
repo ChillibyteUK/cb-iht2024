@@ -2,6 +2,7 @@
 .flip-card {
     perspective: 1000px;
 }
+
 .flip-card-inner {
     position: relative;
     width: 100%;
@@ -9,9 +10,11 @@
     transition: transform 0.6s;
     transform-style: preserve-3d;
 }
+
 .flip-card:hover .flip-card-inner {
     transform: rotateY(180deg);
 }
+
 .flip-card-front,
 .flip-card-back {
     position: absolute;
@@ -21,11 +24,13 @@
     border-radius: 0.5rem;
     overflow: hidden;
 }
+
 .flip-card-front img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
+
 .flip-card-back {
     background-color: #f8f9fa;
     color: #333;
