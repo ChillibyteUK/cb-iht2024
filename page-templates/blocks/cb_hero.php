@@ -33,6 +33,11 @@ if (isset(get_field('short_hero')[0]) && get_field('short_hero')[0] == 'Yes') {
                     <a href="<?=get_field('cta_2')['url']?>" class="button"><img src="<?=get_field('cta_2_icon')?>"> <?=get_field('cta_2')['title']?></a>
                         <?php
                     }
+                    if (get_field('cta_3')) {
+                        ?>
+                    <a href="<?=get_field('cta_3')['url']?>" class="button"><img src="<?=get_field('cta_3_icon')?>"> <?=get_field('cta_3')['title']?></a>
+                        <?php
+                    }
                     ?>
                 </div>
                     <?php
