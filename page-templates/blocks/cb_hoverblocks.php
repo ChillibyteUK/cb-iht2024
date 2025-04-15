@@ -52,18 +52,20 @@
             while(have_rows('blocks')) {
                 the_row();
                 ?>
-            <div class="card flip-card col-md-4 col-lg-4">
-                <div class="flip-card-inner">
-                    <?php 
-                    $image = get_sub_field('image');
-                    if( !empty( $image ) ): ?>
-                    <div class="flip-card-front">
-                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="image" />
-                    </div>
-                    <?php endif; ?>
-                    <div class="flip-card-back">
-                        <h5 class="card-title"><?=get_sub_field('title')?></h5>
-                        <?=get_sub_field('text')?>
+            <div class="col-md-4 col-lg-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <?php 
+                        $image = get_sub_field('image');
+                        if( !empty( $image ) ): ?>
+                        <div class="flip-card-front">
+                            <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="image" />
+                        </div>
+                        <?php endif; ?>
+                        <div class="flip-card-back">
+                            <h5 class="card-title"><?=get_sub_field('title')?></h5>
+                            <?=get_sub_field('text')?>
+                        </div>
                     </div>
                 </div>
             </div>
