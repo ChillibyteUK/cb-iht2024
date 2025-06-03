@@ -15,7 +15,7 @@ defined('ABSPATH') || exit;
                 <?=do_shortcode('[contact_email]')?>
             </div>
             <div class="col-sm-6 col-lg-3 col-xl-3 order-xl-3 has-md-border-right">
-                <div class="footer__heading">Consultancy Services</div>
+                <div class="footer__heading">Our Services</div>
                 <?=wp_nav_menu(array('theme_location' => 'footer_menu1'))?>
             </div>
             <div class="col-sm-6 col-lg-3 col-xl-3 order-xl-3 has-sm-border-right">
