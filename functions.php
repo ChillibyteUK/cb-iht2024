@@ -136,3 +136,23 @@ function mailchimp_news_shortcode() {
     return ob_get_clean();
 }
 add_shortcode('mailchimp_news', 'mailchimp_news_shortcode');
+
+function woo_custom_cart_shortcode() {
+    if ( ! function_exists( 'WC' ) ) return '';
+
+    $cart_url = wc_get_cart_url();
+    $cart_count = WC()->cart->get_cart_contents_count();
+    $cart_total = WC()->cart->get_cart_total();
+
+    ob_start();
+    ?>
+    <a class="woo-cart-link" href="<?php echo esc_url( $cart_url ); ?>">
+        <i class="fa-solid fa-cart-shopping"></i> Cart 
+        <?php if ( $cart_count > 0 ) : ?>
+            (<?php echo esc_html( $cart_count ); ?>)
+        <?php endif; ?>
+    </a>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('woo_cart_link', 'woo_custom_cart_shortcode');
