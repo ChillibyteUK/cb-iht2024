@@ -14,13 +14,17 @@ defined('ABSPATH') || exit;
                 Get in touch: <strong><?=do_shortcode('[contact_phone]')?></strong><br>
                 <?=do_shortcode('[contact_email]')?>
             </div>
-            <div class="col-sm-6 col-lg-3 col-xl-3 order-xl-3 has-md-border-right">
+            <div class="col-sm-6 col-lg-2 col-xl-2 order-xl-3 has-md-border-right">
                 <div class="footer__heading">Our Services</div>
                 <?=wp_nav_menu(array('theme_location' => 'footer_menu1'))?>
             </div>
-            <div class="col-sm-6 col-lg-3 col-xl-3 order-xl-3 has-sm-border-right">
+            <div class="col-sm-6 col-lg-2 col-xl-2 order-xl-3 has-sm-border-right">
                 <div class="footer__heading">Training Courses</div>
                 <?=wp_nav_menu(array('theme_location' => 'footer_menu2'))?>
+            </div>
+            <div class="col-sm-6 col-lg-2 col-xl-2 order-xl-3">
+                <div class="footer__heading">E-Learning Courses</div>
+                <?=wp_nav_menu(array('theme_location' => 'footer_menu4'))?>
             </div>
             <div class="col-sm-6 col-lg-2 col-xl-2 order-xl-3">
                 <div class="footer__heading">More</div>
