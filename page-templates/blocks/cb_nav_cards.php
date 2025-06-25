@@ -50,7 +50,7 @@ $numcards = $count == '4' ? 'col-md-6 col-lg-6' : 'col-md-6 col-lg-4';
                                 <li>
                                     <h2><?php echo esc_html( $term->name ); ?></h2>
                                     <p><?php echo esc_html( $term->description ); ?></p>
-                                    <a href="<?php echo esc_url( get_term_link( $term ) ); ?>">View all '<?php echo esc_html( $term->name ); ?>' posts</a>
+                                    <p><?php print_r($term); ?></p>
                                 </li>
                             <?php endforeach; ?>
                             </ul>
