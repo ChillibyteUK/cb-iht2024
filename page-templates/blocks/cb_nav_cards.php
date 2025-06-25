@@ -39,6 +39,25 @@ $numcards = $count == '4' ? 'col-md-6 col-lg-6' : 'col-md-6 col-lg-4';
                         <?php if (str_ends_with($l, ".pdf")) { ?>
                         <a href="/courses/" class="nav_cards__link text-white <?=$nav_cards__link?>"><i class="fa-solid fa-angle-right"></i> View available dates</a>
                         <?php } ?>
+
+
+
+                        <?php
+                        $terms = get_sub_field('event');
+                        if( $terms ): ?>
+                            <ul>
+                            <?php foreach( $terms as $term ): ?>
+                                <li>
+                                    <h2><?php echo esc_html( $term->name ); ?></h2>
+                                    <p><?php echo esc_html( $term->description ); ?></p>
+                                    <a href="<?php echo esc_url( get_term_link( $term ) ); ?>">View all '<?php echo esc_html( $term->name ); ?>' posts</a>
+                                </li>
+                            <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+
+
+                        
                     </div>
                 </div>
             </div>
