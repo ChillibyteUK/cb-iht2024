@@ -36,28 +36,39 @@ $numcards = $count == '4' ? 'col-md-6 col-lg-6' : 'col-md-6 col-lg-4';
                         <h3><?=get_sub_field('title')?></h3>
                         <div class="nav_cards__content"><?=get_sub_field('content')?></div>
                         <a href="<?=$l?>" target="<?=$target?>" class="nav_cards__link text-white <?=$nav_cards__link?>"><i class="fa-solid fa-angle-right"></i> Learn more</a>
-                        <?php if (str_ends_with($l, ".pdf")) { ?>
-                        <a href="/courses/" class="nav_cards__link text-white <?=$nav_cards__link?>"><i class="fa-solid fa-angle-right"></i> View available dates</a>
-                        <?php } ?>
-
-
 
                         <?php
-                        $terms = get_sub_field('event');
-                        if( $terms ): ?>
-                            <ul>
-                            <?php foreach( $terms as $term ): ?>
-                                <li>
-                                    <h2><?php echo esc_html( $term->name ); ?></h2>
-                                    <p><?php echo esc_html( $term->description ); ?></p>
-                                    <p><?php print_r($term); ?></p>
-                                </li>
-                            <?php endforeach; ?>
-                            </ul>
-                        <?php endif; ?>
+                        $term = get_sub_field('event');
+                        if( $term ):
 
+                            $has_events = new WP_Query([
+                                'post_type'      => 'tribe_events',
+                                'post_status'    => 'publish',
+                                'posts_per_page' => 1,
+                                'tax_query'      => [
+                                    [
+                                        'taxonomy' => 'tribe_events_cat',
+                                        'field'    => 'slug', // or 'term_id' or 'name'
+                                        'terms'    => $term->slug
+                                    ],
+                                ],
+                            ]);
 
-                        
+                            if ( $has_events->have_posts() ) {
+                            ?>
+                            <a href="/courses/" class="nav_cards__link text-white <?=$nav_cards__link?>"><i class="fa-solid fa-angle-right"></i> View available dates</a>
+                            <?php
+                            } else {
+                            ?>
+                            <div class="nav_cards__link text-white <?=$nav_cards__link?>">No dates available</div>
+                            <?php
+                            }
+
+                            wp_reset_postdata(); // always good practice after WP_Query
+
+                        endif;
+                        ?>
+
                     </div>
                 </div>
             </div>
