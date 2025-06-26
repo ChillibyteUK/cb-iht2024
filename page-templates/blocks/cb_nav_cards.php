@@ -60,7 +60,7 @@ $numcards = $count == '4' ? 'col-md-6 col-lg-6' : 'col-md-6 col-lg-4';
                             <?php
                             } else {
                             ?>
-                            <div class="nav_cards__link text-white <?=$nav_cards__link?>">No dates available</div>
+                            <a href="/contact/" class="nav_cards__link text-white <?=$nav_cards__link?>"><i class="fa-solid fa-angle-right"></i> Contact us for availability</a>
                             <?php
                             }
 
