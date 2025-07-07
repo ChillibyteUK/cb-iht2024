@@ -7,7 +7,13 @@ $theme = get_field('theme') ?: 'blue';
 ?>
 <main id="main" class="theme--<?=$theme?>">
     <?php
-    if ( is_page(275) || has_post_parent(275) ) {
+    // Get current page ID
+    $current_id = get_queried_object_id();
+
+    // Get its parent ID (0 if no parent)
+    $parent_id  = wp_get_post_parent_id( $current_id );
+
+    if ( $current_id === 275 || $parent_id === 275 ) {
     ?>
     <section class="hero  hero--short">
         <img fetchpriority="high" decoding="async" width="1811" height="574" src="/wp-content/uploads/2025/03/Education-Training.jpg" class="hero__bg" alt="Course Calendar" sizes="(max-width: 1811px) 100vw, 1811px">
