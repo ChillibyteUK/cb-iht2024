@@ -60,7 +60,7 @@ $numcards = $count == '4' ? 'col-md-6 col-lg-6' : 'col-md-6 col-lg-4';
 
                             if ( $has_events->have_posts() ) {
                             ?>
-                            <a href="/courses/" class="nav_cards__link text-white <?=$nav_cards__link?>"><i class="fa-solid fa-angle-right"></i> View available dates</a>
+                            <a href="/courses/<?=$term->slug?>/" class="nav_cards__link text-white <?=$nav_cards__link?>"><i class="fa-solid fa-angle-right"></i> View available dates</a>
                             <?php
                             } else {
                             ?>
