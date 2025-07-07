@@ -14,7 +14,10 @@ $numcards = $count == '4' ? 'col-md-6 col-lg-6' : 'col-md-6 col-lg-4';
             while(have_rows('cards')) {
                 the_row();
                 $colour = get_sub_field('background') ?? 'black';
-                $link_cta = get_sub_field('link_cta') ?? 'Learn more';
+                $link_cta = get_sub_field('link_cta');
+                if ( $link_cta == "" ) {
+                     $link_cta = 'Learn more';
+                }
                 $l = get_sub_field('link') ?? null;
                 if ( $l == null ) {
                     $nav_cards__link = "d-none";
