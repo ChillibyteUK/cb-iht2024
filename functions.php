@@ -157,6 +157,17 @@ function woo_custom_cart_shortcode() {
 }
 add_shortcode('woo_cart_link', 'woo_custom_cart_shortcode');
 
+function enqueue_bootstrap_for_modal() {
+    if ( is_front_page() ) {
+        // Bootstrap 5 CSS (optional if already included)
+        //wp_enqueue_style( 'bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' );
+
+        // Bootstrap 5 JS (required for modal)
+        wp_enqueue_script( 'bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', array(), null, true );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_bootstrap_for_modal' );
+
 function add_mailchimp_modal_popup() {
     if ( is_front_page() ) {
         ?>
