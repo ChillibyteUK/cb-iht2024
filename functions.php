@@ -198,7 +198,13 @@ function add_mailchimp_modal_popup() {
         </div>
       </div>
     </div>
-
+<!-- Hidden trigger (Data API) -->
+<button id="mailchimpModalTrigger"
+        type="button"
+        class="d-none"
+        data-bs-toggle="modal"
+        data-bs-target="#mailchimpModal"
+        aria-hidden="true"></button>
     <style>
       #mailchimpModal .modal-content{border-radius:12px}
       #mc_embed_signup{max-width:400px;margin:0 auto}
@@ -208,50 +214,43 @@ function add_mailchimp_modal_popup() {
 
 <script>
 (function () {
-  // --- helpers --------------------------------------------------------------
-  function getCookie(name){
-    return document.cookie.split('; ').find(r => r.startsWith(name + '=')); 
-  }
-  function setSeenCookie(){
+  function hasCookie(name){ return document.cookie.split('; ').some(r => r.startsWith(name + '=')); }
+  function setCookieSeen(){
     var d = new Date(); d.setFullYear(d.getFullYear() + 1);
     document.cookie = "mailchimpModalSeen=true; path=/; expires=" + d.toUTCString() + "; SameSite=Lax" + (location.protocol === 'https:' ? '; Secure' : '');
   }
-  function paramOn(name){
-    return new URLSearchParams(location.search).has(name);
-  }
+  function paramOn(name){ return new URLSearchParams(location.search).has(name); }
 
-  // Show after window 'load' to be 100% sure Bootstrap is ready
-  window.addEventListener('load', function () {
+  function showModal(){
     var el = document.getElementById('mailchimpModal');
     if (!el) return;
 
-    // Force show for testing: ?showmodal=1
-    var force = paramOn('showmodal') || paramOn('showModal');
-
-    // Only show if the cookie isn't set OR you forced it
-    if (!force && getCookie('mailchimpModalSeen')) return;
-
-    // If Bootstrap isn't on window (very unlikely if dropdowns work), bail
-    if (!window.bootstrap || !window.bootstrap.Modal) {
-      console.warn('Bootstrap Modal not found on window.bootstrap');
-      return;
+    // 1) Bootstrap 5 global
+    if (window.bootstrap && window.bootstrap.Modal) {
+      try { new bootstrap.Modal(el, {backdrop: true}).show(); return; } catch(e){}
     }
+    // 2) jQuery plugin (Bootstrap 4/5 jQuery build)
+    if (window.jQuery && jQuery.fn && jQuery.fn.modal) {
+      try { jQuery(el).modal('show'); return; } catch(e){}
+    }
+    // 3) Data API fallback – click hidden trigger
+    var t = document.getElementById('mailchimpModalTrigger');
+    if (t) t.click();
+  }
 
-    // Optional: delay open (3s). Set to 0 if you want immediate open.
-    var delayMs = 3000;
-    setTimeout(function () {
-      try {
-        var modal = new bootstrap.Modal(el, { backdrop: true });
-        modal.show();
+  window.addEventListener('load', function(){
+    var force = paramOn('showmodal') || paramOn('showModal');
+    if (!force && hasCookie('mailchimpModalSeen')) return;
 
-        // Set cookie when closed OR when form is submitted
-        el.addEventListener('hidden.bs.modal', setSeenCookie, { once: true });
-        var form = document.getElementById('mc-embedded-subscribe-form');
-        if (form) form.addEventListener('submit', setSeenCookie, { once: true });
-      } catch (e) {
-        console.error('Modal show error:', e);
-      }
-    }, delayMs);
+    setTimeout(function(){
+      showModal();
+
+      var el = document.getElementById('mailchimpModal');
+      if (!el) return;
+      el.addEventListener('hidden.bs.modal', setCookieSeen, { once:true });
+      var form = document.getElementById('mc-embedded-subscribe-form');
+      if (form) form.addEventListener('submit', setCookieSeen, { once:true });
+    }, 3000);
   });
 })();
 </script>
