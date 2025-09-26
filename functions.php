@@ -206,34 +206,55 @@ function add_mailchimp_modal_popup() {
       .modal{z-index: 1060;}
     </style>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Use the Bootstrap already loaded by Understrap
-      if (!window.bootstrap || !window.bootstrap.Modal) return;
+<script>
+(function () {
+  // --- helpers --------------------------------------------------------------
+  function getCookie(name){
+    return document.cookie.split('; ').find(r => r.startsWith(name + '=')); 
+  }
+  function setSeenCookie(){
+    var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+    document.cookie = "mailchimpModalSeen=true; path=/; expires=" + d.toUTCString() + "; SameSite=Lax" + (location.protocol === 'https:' ? '; Secure' : '');
+  }
+  function paramOn(name){
+    return new URLSearchParams(location.search).has(name);
+  }
 
-      // Respect cookie so it shows once per user (1 year)
-      if (document.cookie.indexOf('mailchimpModalSeen=true') === -1) {
-        setTimeout(function () {
-          var el = document.getElementById('mailchimpModal');
-          if (!el) return;
-          var modal = new bootstrap.Modal(el, {backdrop: true});
-          modal.show();
-        }, 3000);
+  // Show after window 'load' to be 100% sure Bootstrap is ready
+  window.addEventListener('load', function () {
+    var el = document.getElementById('mailchimpModal');
+    if (!el) return;
+
+    // Force show for testing: ?showmodal=1
+    var force = paramOn('showmodal') || paramOn('showModal');
+
+    // Only show if the cookie isn't set OR you forced it
+    if (!force && getCookie('mailchimpModalSeen')) return;
+
+    // If Bootstrap isn't on window (very unlikely if dropdowns work), bail
+    if (!window.bootstrap || !window.bootstrap.Modal) {
+      console.warn('Bootstrap Modal not found on window.bootstrap');
+      return;
+    }
+
+    // Optional: delay open (3s). Set to 0 if you want immediate open.
+    var delayMs = 3000;
+    setTimeout(function () {
+      try {
+        var modal = new bootstrap.Modal(el, { backdrop: true });
+        modal.show();
+
+        // Set cookie when closed OR when form is submitted
+        el.addEventListener('hidden.bs.modal', setSeenCookie, { once: true });
+        var form = document.getElementById('mc-embedded-subscribe-form');
+        if (form) form.addEventListener('submit', setSeenCookie, { once: true });
+      } catch (e) {
+        console.error('Modal show error:', e);
       }
-
-      function setModalCookie() {
-        var expiry = new Date();
-        expiry.setFullYear(expiry.getFullYear() + 1);
-        document.cookie = "mailchimpModalSeen=true; path=/; expires=" + expiry.toUTCString() + "; SameSite=Lax" + (location.protocol === 'https:' ? '; Secure' : '');
-      }
-
-      var m = document.getElementById('mailchimpModal');
-      if (m) m.addEventListener('hidden.bs.modal', setModalCookie);
-
-      var f = document.getElementById('mc-embedded-subscribe-form');
-      if (f) f.addEventListener('submit', setModalCookie);
-    });
-    </script>
+    }, delayMs);
+  });
+})();
+</script>
     <?php
 }
 add_action('wp_footer', 'add_mailchimp_modal_popup');
